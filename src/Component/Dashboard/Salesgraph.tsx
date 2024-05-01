@@ -50,7 +50,8 @@ const Salesgraph = () => {
         <MoreVertIcon />
       </Box>
 
-      <BarChart
+     <Box sx={{marginTop: "3rem"}}>
+     <BarChart
         width={300}
         height={210}
         data={data1}
@@ -73,6 +74,7 @@ const Salesgraph = () => {
         <Bar dataKey="pt" fill="rgba(119, 93, 166, 1)" />
         <Bar dataKey="pw" fill="rgba(119, 93, 166, 1)" />
       </BarChart>
+     </Box>
     </CustomBox>
   );
 };

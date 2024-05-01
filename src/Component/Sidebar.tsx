@@ -8,7 +8,7 @@ import CssBaseline from "@mui/material/CssBaseline";
 import Typography from "@mui/material/Typography";
 import Divider from "@mui/material/Divider";
 import IconButton from "@mui/material/IconButton";
- import MenuIcon from '@mui/icons-material/Menu';
+import MenuIcon from "@mui/icons-material/Menu";
 import ChevronRightIcon from "@mui/icons-material/ChevronRight";
 import Header from "./Header";
 import SideBarComponent from "./SidebarComponent";
@@ -16,7 +16,7 @@ import logo from "../assets/Logo.svg";
 import { useLocation } from "react-router-dom";
 import { sideBarItem } from "../utils/SidebarItems";
 import { useMediaQuery } from "@mui/material";
-import CloseIcon from '@mui/icons-material/Close';
+import CloseIcon from "@mui/icons-material/Close";
 
 const drawerWidth = 200;
 const openedMixin = (theme: Theme): CSSObject => ({
@@ -97,17 +97,15 @@ export default function MiniDrawer() {
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.only("xs"));
   const [open, setOpen] = React.useState(false);
-  
-  const location = useLocation()
+
+  const location = useLocation();
 
   const handleDrawerOpen = () => {
     if (isMobile) {
-      setOpen(true); 
+      setOpen(true);
     }
-  
   };
 
-  
   const handleDrawerClose = () => {
     setOpen(false);
   };
@@ -118,26 +116,38 @@ export default function MiniDrawer() {
       <AppBar
         position="fixed"
         open={open}
+        
         sx={{
+          
           borderBottom: "1px solid #DCDCDC",
           backgroundColor: "#FFFFFF",
           boxShadow: "0 0px 6px #0000001a",
         }}
       >
-        <Toolbar>
+        <Toolbar
+        >
           <IconButton
             color="inherit"
             aria-label="open drawer"
-             onClick={handleDrawerOpen}
+            onClick={handleDrawerOpen}
             edge="end"
             sx={{
               marginRight: 10,
               ...(open && { display: "none" }),
             }}
           >
-           {isMobile && <MenuIcon   sx={{ color: "#2E2C34", fontSize: "20px", fontWeight: "700" }}/> }
+            {isMobile && (
+              <MenuIcon
+                sx={{ color: "#2E2C34", fontSize: "20px", fontWeight: "700" }}
+              />
+            )}
             <Box sx={{ display: "flex", alignItems: "center", gap: 2 }}>
-              <img src={logo} alt="" loading="lazy" style={{width: "37.5px", height: "37.5px"}} />
+              <img
+                src={logo}
+                alt=""
+                loading="lazy"
+                style={{ width: "37.5px", height: "37.5px" }}
+              />
               <Typography
                 sx={{ color: "#2E2C34", fontSize: "20px", fontWeight: "700" }}
               >
@@ -147,23 +157,20 @@ export default function MiniDrawer() {
           </IconButton>
           <Header />
         </Toolbar>
+      
       </AppBar>
       <Drawer variant="permanent" open={open}>
         <DrawerHeader>
-          <IconButton onClick={handleDrawerClose}>
+          <IconButton onClick={handleDrawerClose} sx={{ padding: "0px 76px" }}>
             {theme.direction === "rtl" ? (
               <ChevronRightIcon />
             ) : (
-              <CloseIcon/>
+              <CloseIcon sx={{ color: "#40B6FD" }} />
             )}
           </IconButton>
         </DrawerHeader>
         <Divider />
-        <SideBarComponent
-         items={sideBarItem} 
-         location={location}
-         
-          />
+        <SideBarComponent items={sideBarItem} location={location} />
       </Drawer>
     </Box>
   );
