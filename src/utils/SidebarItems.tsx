@@ -8,7 +8,7 @@ export const sideBarItem = [
   {
     text: "All User",
     icon: DashboardIcon,
-    link: "/allUser",
+    link: "/viewEmployees",
   },
   {
     text: "Contracts",

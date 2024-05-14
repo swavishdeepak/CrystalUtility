@@ -1,5 +1,6 @@
-import React from "react";
+import React, { useState } from "react";
 import {
+  Badge,
   Box,
   IconButton,
   InputAdornment,
@@ -9,8 +10,19 @@ import {
 import SearchIcon from "@mui/icons-material/Search";
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import CircleNotificationsIcon from "@mui/icons-material/CircleNotifications";
+import Notification from "./Notification";
 
 const Header = () => {
+  const [open, setOpen] = useState(false)
+
+  const handleOpen = () =>{
+    setOpen(true)
+  }
+
+  const handleClose = () =>{
+      setOpen(false)
+  }
+
   return (
     <Box
       sx={{
@@ -53,8 +65,24 @@ const Header = () => {
             },
           }}
         />
-       
-       <CircleNotificationsIcon  sx={{color: "#2E2C34"}}/>
+       <Badge  variant="dot" 
+        sx={{
+          '& .MuiBadge-dot': {
+              backgroundColor: "red",
+              width: 10,
+              height: 10,
+              borderRadius: "50%",
+          },
+          '& .MuiBadge-anchorOriginTopRightCircle': {
+              top: 0,
+              right: 0,
+          },
+          fontSize: "10px",
+      }}
+       >
+       <CircleNotificationsIcon  onClick={handleOpen} sx={{color: "#2E2C34", cursor: "pointer"}}/>
+       </Badge>
+       <Notification handleClose={handleClose}  open={open}/>
        <Typography sx={{color: "#2E2C34", fontSize: "17px", fontWeight: "500"}}>Deepak</Typography>
        <AccountCircleIcon  sx={{color: "#2E2C34"}}/>
       </Box>

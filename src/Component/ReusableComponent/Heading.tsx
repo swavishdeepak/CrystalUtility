@@ -7,7 +7,7 @@ const Heading = () => {
   const path = location.pathname;
   const formattedPath = path.charAt(1).toUpperCase() + path.slice(2);
   return (
-    <Typography sx={{ color: "#069FFF", fontSize: "29px", fontWeight: "600" }}>
+    <Typography sx={{ color: "#069FFF", fontSize: "19px", fontWeight: "600" }}>
       {formattedPath}
     </Typography>
   );

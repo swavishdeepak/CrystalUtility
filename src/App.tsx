@@ -8,9 +8,14 @@ import AllUser from './Page/AllUser/AllUser';
 import Contract from './Page/Contracts/Contract';
 import AllMerchant from './Page/Merchants/AllMerchant';
 import AllCommission from './Page/Commission/AllCommission';
+import Login from './Page/AuthUser/Login';
 
 function App() {
   const router = createBrowserRouter([
+    {
+      path: "auth/login",
+      element: <Login/>
+    },
     
     {
       path: "/",
@@ -22,7 +27,7 @@ function App() {
           element: <Dashboard />,
         },
         {
-          path: "/allUser",
+          path: "/viewEmployees",
           element: <AllUser />,
         },
         {
